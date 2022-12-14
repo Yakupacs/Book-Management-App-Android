@@ -3,7 +3,7 @@
 </h1>
 
 # Description
-###### 
+###### With this application, you can store your book PDFs in our application and read them whenever you want.
 
 --------
 # Video
