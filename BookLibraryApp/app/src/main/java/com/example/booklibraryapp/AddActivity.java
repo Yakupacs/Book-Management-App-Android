@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -26,12 +27,17 @@ public class AddActivity extends AppCompatActivity {
         add_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!title_input.getText().toString().isEmpty() && !author_input.getText().toString().isEmpty() && !pages_input.getText().toString().isEmpty()){
                     MyDatabaseHelper db = new MyDatabaseHelper(AddActivity.this);
                     db.addBook(title_input.getText().toString().trim(),
                             author_input.getText().toString().trim(),
                             Integer.parseInt(pages_input.getText().toString().trim()));
                     startActivity(new Intent(AddActivity.this, MainActivity.class));
-                    finish();
+                    finish();            
+                }
+                else{
+                    Toast.makeText(AddActivity.this, "Lütfen gerekli yerleri doldurun!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
